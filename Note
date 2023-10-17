@@ -1,0 +1,5 @@
+SELECT * FROM artiste
+SELECT Titre FROM film WHERE Genre = 'Drame'
+SELECT roles FROM film WHERE actor = 'Bruce Wils'
+SELECT director FROM WHERE title = 'Memento'
+SELECT notes FROM film WHERE title = 'Fargo'
