@@ -1,5 +1,48 @@
-SELECT * FROM artiste
-SELECT Titre FROM film WHERE Genre = 'Drame'
-SELECT roles FROM film WHERE actor = 'Bruce Wils'
-SELECT director FROM WHERE title = 'Memento'
-SELECT notes FROM film WHERE title = 'Fargo'
+use bdd;
+SELECT * FROM artiste;
+1
+use bdd;
+SELECT nom,annéeNaiss From artiste WHERE annéeNaiss < "1950";
+2
+use bdd;
+SELECT film.titre FROM film WHERE Genre = "Drame";
+use bdd;
+SELECT idActeur,nomRôle FROM role join artiste on idActeur=idArtiste WHERE nom   = "Willis";
+3
+use bdd;
+SELECT idRéalisateur,nom FROM film join artiste on idArtiste = idRéalisateur  WHERE titre = "Memento";
+4
+use bdd;
+SELECT note FROM notation join film WHERE titre = "Fargo";
+5
+use bdd;
+SELECT nom, prénom, nomrôle FROM artiste NATURAL JOIN role WHERE nomrôle = 'Chewbacca';
+6
+use bdd;
+SELECT titre, idacteur FROM film NATURAL JOIN role WHERE nomrôle = 'John McClane';
+7
+use bdd;
+SELECT nom, idartiste, titre, idréalisateur FROM artiste JOIN film ON titre = 'Sueurs froides';
+8
+use bdd;
+SELECT email FROM internaute WHERE nom = 'Nom0';
+SELECT titre, note, email FROM film JOIN notation ON email = 'anon0@afpa-zakademie.com';
+9
+use bdd;
+SELECT titre from film 
+JOIN role as Roles ON  film.idfilm = Roles.idfilm  
+JOIN artiste as Realisateur ON  film.idréalisateur = Realisateur.idartiste 
+JOIN artiste as Acteur ON Roles.idacteur = Acteur.idartiste  
+WHERE Realisateur.nom = 'Burton' 
+AND Realisateur.prénom = 'Tim' 
+AND Acteur.nom = 'Depp' 
+AND Acteur.prénom = 'Johnny';
+
+10
+use bdd;
+SELECT titre, nomRôle, nom, prénom FROM role
+JOIN film ON film.idFilm = role.idFilm
+JOIN artiste ON role.idActeur = artiste.idArtiste
+WHERE nom="Allen" AND prénom="Woody"
+
+
